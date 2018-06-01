@@ -61,7 +61,7 @@ class Activity_Filter {
 				'post'                 => $post,
 				'task_ids_for_history' => implode( ',', $task_ids_for_history ),
 				'last_activity'        => $last_activity,
-				'last_date'            => \eoxia\Date_Util::g()->fill_date( $last_date ),
+				'last_date'            => $last_date,
 			) );
 			$current_output .= ob_get_clean();
 		}
