@@ -2,11 +2,11 @@
 /**
  * Gestion des actions liées à la barre d'administration de WordPress.
  *
- * @author Eoxia <dev@eoxia.com>
- * @since 1.0.0
- * @version 1.6.0
- * @copyright 2015-2017 Eoxia
- * @package Task_Manager
+ * @author    Eoxia <dev@eoxia.com>
+ * @since     1.0.0
+ * @version   1.7.1
+ * @copyright 2018 Eoxia.
+ * @package   Task_Manager
  */
 
 namespace task_manager;
@@ -49,11 +49,13 @@ class Admin_Bar_Action {
 	}
 
 	/**
-	 * Permet d'afficher le champ de recherche.
-	 * Permet d'ajouter le bouton "Temps rapides" dans le menu "Créer" de WordPress.
+	 * Permet d'afficher les deux champs de recherche dans l'admin bar.
+	 *
+	 * Appelle également la méthode init_create_buttons qui permet d'ajouter des boutons
+	 * dans la liste du sous menu "Créer" de l'admin bar.
 	 *
 	 * @since 1.0.0
-	 * @version 1.2.0
+	 * @version 1.7.1
 	 *
 	 * @param mixed $wp_admin_bar L'objet de WordPress pour gérer les noeuds.
 	 *
@@ -61,7 +63,7 @@ class Admin_Bar_Action {
 	 */
 	public function callback_admin_bar_menu( $wp_admin_bar ) {
 		if ( current_user_can( 'administrator' ) ) {
-			Admin_Bar_Class::g()->init_quick_time( $wp_admin_bar );
+			Admin_Bar_Class::g()->init_create_buttons( $wp_admin_bar );
 			Admin_Bar_Class::g()->init_search( $wp_admin_bar );
 			Admin_Bar_Class::g()->init_customer_link( $wp_admin_bar );
 		}

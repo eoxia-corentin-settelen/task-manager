@@ -2,7 +2,7 @@
 	"name": "La barre d'admin de WordPress",
 	"slug": "admin-bar",
 	"since": "1.6.0",
-	"version": "1.6.1",
+	"version": "1.7.1",
 	"description": "Le module gérant le champ de recherche dans l'admin bar de WordPress.",
 	"path": "module/admin-bar/",
 	"dependencies": {

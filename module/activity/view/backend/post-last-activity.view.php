@@ -13,13 +13,16 @@ namespace task_manager;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
-} ?><ul class="post-last-activity" >
+} ?>
+
+<ul class="post-last-activity">
 	<li class="wpeo-modal-event"
 		data-nonce="<?php echo esc_attr( wp_create_nonce( 'load_last_activity' ) ); ?>"
 		data-action="load_last_activity"
 		data-class="last-activity activities"
 		data-tasks-id="<?php echo esc_attr( $task_ids_for_history ); ?>"
-		data-title="<?php echo esc_attr_e( 'Last activities', 'task-manager' ); ?>" >
+		data-title="<?php echo esc_attr_e( 'Last activities', 'task-manager' ); ?>"
+		data-date="<?php echo esc_attr( $last_date ); ?>">
 		<i class="dashicons dashicons-screenoptions" ></i>
 		<?php esc_html_e( 'View complete history', 'task-manager' ); ?>
 	</li>

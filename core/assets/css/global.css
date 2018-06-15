@@ -1,5 +1,20 @@
 /** Ce fichier est inclus dans tout "wp-admin" de WordPress **/
 
+
+/* ----------------------------------
+		Sous menu "Create" admin bar WordPress.
+-----------------------------------*/
+
+
+#wpadminbar .ab-item.ab-empty-item span:hover {
+	color: #00b9eb;
+	cursor: pointer;
+}
+
+#wpadminbar #wp-admin-bar-button-open-popup-quick-time span {
+	line-height: 26px;
+}
+
 /* ----------------------------------
 		Notification (rond orange)
 -----------------------------------*/
