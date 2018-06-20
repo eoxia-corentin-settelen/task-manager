@@ -22,15 +22,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div>
 			<h3><?php esc_html_e( 'Compile tasks, points, comments', 'task-manager' ); ?></h3>
 			<div class="wpeo-button button-main action-attribute" data-action="task_manager_compile_data" data-nonce="<?php echo esc_attr( wp_create_nonce( 'task_manager_compile_data' ) ); ?>">
-			<span><?php esc_html_e( 'Compile', 'task-manager' ); ?></span>
-		</div>
+				<span><?php esc_html_e( 'Compile', 'task-manager' ); ?></span>
+			</div>
 		</div>
 
 		<div>
 			<h3><?php esc_html_e( 'Compile users', 'task-manager' ); ?></h3>
-			<div class="wpeo-button button-main action-attribute" data-action="task_manager_compile_users" data-nonce="<?php echo esc_attr( wp_create_nonce( 'task_manager_compile_users' ) ); ?>">
-			<span><?php esc_html_e( 'Compile', 'task-manager' ); ?></span>
+				<div class="wpeo-button button-main action-attribute" data-action="task_manager_compile_users" data-nonce="<?php echo esc_attr( wp_create_nonce( 'task_manager_compile_users' ) ); ?>">
+				<span><?php esc_html_e( 'Compile', 'task-manager' ); ?></span>
+			</div>
 		</div>
-		</div>
+
+		<!-- <div>
+			<h3><?php esc_html_e( 'Fix points and comments', 'task-manager' ); ?></h3>
+				<div class="wpeo-button button-main action-attribute" data-action="task_manager_fix_points_and_comments" data-nonce="<?php echo esc_attr( wp_create_nonce( 'task_manager_fix_points_and_comments' ) ); ?>">
+				<span><?php esc_html_e( 'Fix', 'task-manager' ); ?></span>
+			</div>
+		</div> -->
 	</div>
 </div>

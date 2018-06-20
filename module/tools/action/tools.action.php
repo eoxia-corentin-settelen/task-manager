@@ -30,6 +30,7 @@ class Tools_Action {
 		add_action( 'admin_menu', array( $this, 'callback_admin_menu' ) );
 
 		add_action( 'wp_ajax_task_manager_compile_data', array( $this, 'callback_compile_data' ) );
+		add_action( 'wp_ajax_task_manager_fix_points_and_comments', array( $this, 'callback_fix_points_and_comments' ) );
 	}
 
 	/**
@@ -105,6 +106,79 @@ class Tools_Action {
 		fclose( $file );
 
 		wp_send_json_success();
+	}
+
+	public function callback_fix_points_and_comments() {
+		$point_schema = Point_Class::g()->get_schema();
+		$task_schema  = Task_Class::g()->get_schema();
+
+		$points = get_comments( array(
+			'type' => 'wpeo_point',
+		) );
+
+		if ( ! empty( $points ) ) {
+			foreach ( $points as $point ) {
+
+				$comment_metas = get_comment_meta( (int) $point->comment_ID );
+
+				// Position du point dans la tâche.
+				update_comment_meta( (int) $point->comment_ID, $point_schema['order']['field'], $this->search_position( (int) $point->comment_ID, (int) $point->comment_post_ID ) );
+
+				// Statut du point terminé / en cours.
+				if ( ! empty( $comment_metas ) && ! empty( $comment_metas[ Point_Class::g()->get_meta_key() ] ) && ! isset( $comment_metas[ $point_schema['completed']['field'] ] ) ) {
+					$wpeo_point_meta = json_decode( $comment_metas[ Point_Class::g()->get_meta_key() ][0] );
+					if ( true === $wpeo_point_meta->point_info->completed ) {
+						$meta_name = $task_schema['count_uncompleted_points']['field'];
+						update_comment_meta( (int) $point->comment_ID, $point_schema['completed']['field'], true );
+					} else {
+						$meta_name = $task_schema['count_completed_points']['field'];
+						update_comment_meta( (int) $point->comment_ID, $point_schema['completed']['field'], false );
+					}
+					$task_number_point = get_post_meta( $point->comment_post_ID, $meta_name, true );
+					if ( empty( $count_completed_point ) ) {
+						$task_number_point = 0;
+					}
+					$task_number_point++;
+					update_post_meta( $point->comment_post_ID, $meta_name, $task_number_point );
+				}
+			}
+		}
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Recherches la position du point dans le tableau "order_point_id" de la tâche.
+	 *
+	 * @since 1.7.1
+	 * @version 1.7.1
+	 *
+	 * @param  Point_Model $point Les données du point.
+	 * @return integer            La position du point.
+	 */
+	public function search_position( $point_id, $task_id ) {
+		$position = false;
+
+		if ( 0 === $task_id ) {
+			return 0;
+		}
+
+		$task = Task_Class::g()->get( array(
+			'id' => $task_id,
+		), true );
+
+		if ( empty( $task ) ) {
+			$position = false;
+		} else {
+			$position = array_search( $point_id, $task->data['task_info']['order_point_id'] );
+		}
+
+		if ( false === $position ) {
+			// \eoxia\LOG_Util::log( 'No order for the point #' . $point->data['id'] . ' setted to 0 in task #' . $task->data['id'] . '(' . wp_json_encode( $task->data['task_info']['order_point_id'] ) . ')', 'task-manager' );
+			$position = 0;
+		}
+
+		return $position;
 	}
 }
 

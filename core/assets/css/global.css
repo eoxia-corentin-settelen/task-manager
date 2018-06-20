@@ -11,7 +11,7 @@
 	cursor: pointer;
 }
 
-#wpadminbar #wp-admin-bar-button-open-popup-quick-time span {
+#wpadminbar #wp-admin-bar-new-content span {
 	line-height: 26px;
 }
 
@@ -126,3 +126,82 @@ z-index: 26; }
 		  display: block;
 		  content: '';
 		  clear: both; }
+
+			/** USER **/
+
+			.wpeo-ul-users {
+			  display: -webkit-box;
+			  display: -webkit-flex;
+			  display: -moz-box;
+			  display: -ms-flexbox;
+			  display: flex;
+			  -webkit-flex-wrap: wrap;
+			      -ms-flex-wrap: wrap;
+			          flex-wrap: wrap;
+			  background: rgba(0, 0, 0, 0.05); }
+
+				.user {
+				  background: #389af6;
+				  color: #fff;
+				  position: relative;
+				  -webkit-transition: all 0.2s ease-out;
+				  -o-transition: all 0.2s ease-out;
+				  transition: all 0.2s ease-out; }
+
+				.user img {
+				  position: absolute;
+				  top: 0;
+				  left: 0;
+				  width: 100%;
+				  height: 100%; }
+
+				.user .wpeo-avatar-initial {
+				  display: -webkit-box;
+				  display: -webkit-flex;
+				  display: -moz-box;
+				  display: -ms-flexbox;
+				  display: flex;
+				  height: 100%; }
+
+				.user span {
+				  font-size: 16px;
+				  text-align: center;
+				  margin: auto;
+				  display: inline-block;
+				  width: 100%; }
+
+				.user:hover {
+				  cursor: pointer; }
+
+			.wpeo-ul-users:after {
+			  display: block;
+			  content: '';
+			  clear: both; }
+
+			.wpeo-modal ul:after {
+			  display: block;
+			  content: '';
+			  clear: both; }
+
+			.wpeo-modal .follower {
+			  float: left;
+			  margin: 0.4em; }
+
+			.wpeo-modal .follower .user:hover {
+			  cursor: pointer !important;
+			  -webkit-box-shadow: 0 0 0 1px #3495f0;
+			          box-shadow: 0 0 0 1px #3495f0; }
+
+			.wpeo-modal .follower img {
+			  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0" /></filter></svg>#filter');
+			  -webkit-filter: grayscale(100%);
+			          filter: grayscale(100%); }
+
+			.wpeo-modal .follower.active .user {
+			  -webkit-box-shadow: 0 0 0 3px #3495f0;
+			          box-shadow: 0 0 0 3px #3495f0; }
+
+			.wpeo-modal .follower.active .user img {
+			  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feColorMatrix type="matrix" color-interpolation-filters="sRGB" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" /></filter></svg>#filter');
+			  -webkit-filter: grayscale(0);
+			          filter: grayscale(0); }
