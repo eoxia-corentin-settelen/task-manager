@@ -19,12 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<input type="hidden" class="offset-event" value="<?php echo esc_attr( \eoxia\Config_Util::$init['task-manager']->activity->activity_per_page ); ?>" />
 	<input type="hidden" class="last-date" value="" />
 
-	<div class="tm-activities-filter" >
-		<div></div>
-		<div></div>
-		<button class="wpeo-button button-main" ><?php esc_html_e( '', 'task-manager' ); ?></button>
-	</div>
-
 	<div class="content"></div>
 
 	<span class="load-more-history"><?php esc_html_e( 'Load more', 'task-manager' ); ?></span>

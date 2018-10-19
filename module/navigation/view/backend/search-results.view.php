@@ -44,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			endif;
 			?>
 
-			<a href="<?php echo esc_attr( admin_url( 'admin.php' ) ); ?>?page=wpeomtm-dashboard"><span class="dashicons dashicons-no-alt"></span></a>
+			<a href="<?php echo esc_attr( $current_url ); ?>"><span class="dashicons dashicons-no-alt"></span></a>
 		</h3>
 	<?php endif; ?>
 </div>

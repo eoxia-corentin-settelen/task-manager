@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPProject\n"
-"POT-Creation-Date: 2018-06-06 14:39+0200\n"
-"PO-Revision-Date: 2018-06-06 14:40+0200\n"
+"POT-Creation-Date: 2018-10-18 15:44+0200\n"
+"PO-Revision-Date: 2018-10-18 15:44+0200\n"
 "Last-Translator: Equipe de développement de digirisk <dev@digirisk.com>\n"
 "Language-Team: Eoxia\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.0.5\n"
 "X-Poedit-Basepath: ../../..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html__;esc_attr_e;_x\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Poedit-SearchPath-1: core\n"
 "X-Poedit-SearchPathExcluded-0: core/external\n"
 
-#: core/action/task_manager.action.php:75
+#: core/action/task_manager.action.php:76
 msgid ""
 "Your data are being updated. If you confirm that you want to leave this "
 "page, your data could be corrupted"
@@ -26,23 +26,23 @@ msgstr ""
 "Vos données sont en cours de mise à jour. Si vous confirmez que vous "
 "souhaitez quitter cette page vos données risquent d'être corrompues"
 
-#: core/action/task_manager.action.php:78
+#: core/action/task_manager.action.php:79
 #, php-format
 msgid "Update %s in progress"
 msgstr "Mise à jour %s en cours"
 
-#: core/action/task_manager.action.php:80
+#: core/action/task_manager.action.php:81
 #, php-format
 msgid "An error occured. Please take a look at %s logs"
 msgstr "Une erreur est survenue. Merci de vérifier les logs de la version %s"
 
-#: core/action/task_manager.action.php:108
+#: core/action/task_manager.action.php:110
 #: module/comment/view/backend/comment.view.php:44
 msgid "Delete this comment ?"
 msgstr "Voulez vous supprimer ce commentaire ?"
 
-#: core/action/task_manager.action.php:151
-#: core/action/task_manager.action.php:155 core/view/main.view.php:23
+#: core/action/task_manager.action.php:153
+#: core/action/task_manager.action.php:157 core/view/main.view.php:23
 #: module/import/view/backend/import-textarea.view.php:20
 #: module/task/action/task.action.php:455
 msgid "Task"
@@ -56,7 +56,21 @@ msgstr "Pas de note de mise à jour pour cette version."
 msgid "New task"
 msgstr "Nouvelle tâche"
 
-#: core/view/main.view.php:36
+#: core/view/main.view.php:32 core/view/main.view.php:50
+#: module/import/view/backend/ajax-modal-open-button.view.php:19
+#: module/import/view/backend/ajax-modal-save-buttons.view.php:22
+#: module/import/view/backend/inline-modal.view.php:21
+#: module/import/view/backend/inline-modal.view.php:39
+msgid "Import"
+msgstr "Importer"
+
+#: core/view/main.view.php:45
+#: module/import/view/backend/ajax-modal-save-buttons.view.php:17
+#: module/import/view/backend/inline-modal.view.php:34
+msgid "Cancel"
+msgstr "Annuler"
+
+#: core/view/main.view.php:64
 msgid "Need to update Task Manager data"
 msgstr "Les données de Task Manager doivent être mise à jour"
 
@@ -85,15 +99,15 @@ msgstr "Accéder à mon support complet"
 msgid "Last activities on your support"
 msgstr "Dernières activités sur votre support"
 
-#: module/activity/view/backend/main.view.php:25
+#: module/activity/view/backend/main.view.php:30
 msgid "Load more"
 msgstr "Charger plus"
 
-#: module/activity/view/backend/post-last-activity.view.php:22
+#: module/activity/view/backend/post-last-activity.view.php:24
 msgid "Last activities"
 msgstr "Dernières activités"
 
-#: module/activity/view/backend/post-last-activity.view.php:24
+#: module/activity/view/backend/post-last-activity.view.php:27
 msgid "View complete history"
 msgstr "Historique complet"
 
@@ -116,12 +130,6 @@ msgstr "dans les catégories:"
 msgid " for the followers: "
 msgstr "pour les abonnés:"
 
-#: module/admin-bar/view/backend/button-quick-time.view.php:21
-#: module/admin-bar/view/backend/button-quick-time.view.php:22
-#: module/quick_time/action/quick-time.action.php:49
-msgid "Quick time"
-msgstr "Temps rapide"
-
 #: module/comment/view/backend/comment.view.php:39
 msgid "Edit this comment"
 msgstr "Editer ce commentaire"
@@ -130,7 +138,7 @@ msgstr "Editer ce commentaire"
 msgid "Delete this comment"
 msgstr "Supprimer ce commentaire"
 
-#: module/comment/view/backend/edit.view.php:37
+#: module/comment/view/backend/edit.view.php:41
 #: module/comment/view/frontend/edit.view.php:34
 msgid "Your comment here..."
 msgstr "Écrire ce commentaire ici..."
@@ -172,6 +180,7 @@ msgid "Display points/comments ID"
 msgstr "Afficher les ID des points/commentaires"
 
 #: module/export/view/main.view.php:52
+#: module/indicator/view/backend/filter-daily-activity.view.php:44
 #: module/task/view/backend/toggle-content.view.php:87
 msgid "Export"
 msgstr "Exporter"
@@ -248,30 +257,14 @@ msgstr "Les historiques de temps"
 msgid "No history time for now"
 msgstr "Aucun historique de temps pour le moment"
 
-#: module/import/action/class-import-action.php:79
-msgid "No element have been given for import data for"
-msgstr "Aucun élément n'a été fourni pour l'import"
-
 #: module/import/action/class-import-action.php:84
 msgid "No content have been given for import"
 msgstr "Aucun contenu n'a été fourni pour l'import"
-
-#: module/import/view/backend/ajax-modal-open-button.view.php:19
-#: module/import/view/backend/ajax-modal-save-buttons.view.php:22
-#: module/import/view/backend/inline-modal.view.php:21
-#: module/import/view/backend/inline-modal.view.php:39
-msgid "Import"
-msgstr "Importer"
 
 #: module/import/view/backend/ajax-modal-open-button.view.php:22
 #, php-format
 msgid "Import points from text file in : %s"
 msgstr "Import de points depuis un fichier texte dans la tâche : %s"
-
-#: module/import/view/backend/ajax-modal-save-buttons.view.php:17
-#: module/import/view/backend/inline-modal.view.php:34
-msgid "Cancel"
-msgstr "Annuler"
 
 #: module/import/view/backend/import-textarea.view.php:24
 msgid "Point"
@@ -287,22 +280,30 @@ msgid "My daily activity"
 msgstr "Mon activité de la journée"
 
 #: module/indicator/view/backend/daily-activity.view.php:30
-#: module/time-exceeded/view/backend/main.view.php:22
+#: module/time-exceeded/view/backend/main.view.php:24
 msgid "Start date"
 msgstr "Date de début"
 
 #: module/indicator/view/backend/daily-activity.view.php:34
-#: module/time-exceeded/view/backend/main.view.php:27
+#: module/time-exceeded/view/backend/main.view.php:30
 msgid "End date"
 msgstr "Date de fin"
 
-#: module/indicator/view/backend/daily-activity.view.php:39
+#: module/indicator/view/backend/daily-activity.view.php:41
 msgid "View activity"
 msgstr "Voir l'activité"
 
-#: module/indicator/view/backend/daily-activity.view.php:97
+#: module/indicator/view/backend/daily-activity.view.php:99
 msgid "No activity found for now"
 msgstr "Pas d'activité trouvé pour le moment."
+
+#: module/indicator/view/backend/filter-daily-activity.view.php:20
+msgid "Which user"
+msgstr "Quel utilisateur"
+
+#: module/indicator/view/backend/filter-daily-activity.view.php:40
+msgid "Which customer"
+msgstr "Quel client"
 
 #: module/navigation/view/backend/main.view.php:28
 msgid "All tasks"
@@ -379,12 +380,12 @@ msgstr "Envoyer la notification"
 msgid "Teams"
 msgstr "Équipe"
 
-#: module/point/action/point.action.php:323
-#: module/point/action/point.action.php:324
+#: module/point/action/point.action.php:296
+#: module/point/action/point.action.php:297
 msgid "No task found"
 msgstr "Aucune tâche trouvé"
 
-#: module/point/filter/point.filter.php:66
+#: module/point/filter/point.filter.php:70
 msgid "Incompleted"
 msgstr "Incomplet"
 
@@ -448,6 +449,12 @@ msgstr "complété"
 #: module/quick-point/view/modal-success.view.php:20
 msgid "uncompleted"
 msgstr "incomplet"
+
+#: module/quick_time/action/quick-time.action.php:49
+#: module/quick_time/filter/quick-time.filter.php:46
+#: module/quick_time/filter/quick-time.filter.php:51
+msgid "Quick time"
+msgstr "Temps rapide"
 
 #: module/quick_time/view/backend/button-setting.view.php:21
 msgid "Setting of the add quick time list"
@@ -550,7 +557,6 @@ msgid "A les droit sur Task Manager"
 msgstr ""
 
 #: module/setting/view/capability/list.view.php:51
-#: module/tools/view/backend/main.view.php:143
 msgid "Page"
 msgstr ""
 
@@ -685,45 +691,52 @@ msgid "Move the task to"
 msgstr "Déplacer la tâche vers"
 
 #: module/time-exceeded/action/class-time-exceeded-action.php:43
-#: module/time-exceeded/view/backend/list.view.php:24
 msgid "Time exceeded"
 msgstr "Afficher les tâches avec un temps supérieur aux prévisions"
 
-#: module/time-exceeded/class/time-exceeded.class.php:120
+#: module/time-exceeded/class/time-exceeded.class.php:124
 msgid "No parent"
 msgstr "Pas de parent"
 
-#: module/time-exceeded/view/backend/list.view.php:21
+#: module/time-exceeded/view/backend/list.view.php:20
 msgid "Title"
 msgstr "Titre"
 
-#: module/time-exceeded/view/backend/list.view.php:22
+#: module/time-exceeded/view/backend/list.view.php:21
 msgid "Parent task"
 msgstr "Tâche parent"
 
-#: module/time-exceeded/view/backend/list.view.php:23
+#: module/time-exceeded/view/backend/list.view.php:22
 msgid "Time"
 msgstr "Temps"
 
-#: module/time-exceeded/view/backend/list.view.php:34
+#: module/time-exceeded/view/backend/list.view.php:23
+msgid "Total time exceeded"
+msgstr ""
+
+#: module/time-exceeded/view/backend/list.view.php:33
 msgid "There is no task with exceeded time corresponding to your search."
 msgstr ""
 "Il n'y a pas de tâche dont le temps est dépassé qui correspondent à votre "
 "recherche"
 
-#: module/time-exceeded/view/backend/main.view.php:31
-msgid "Display task with time over"
-msgstr "Temps de référence (en minute)"
-
-#: module/time-exceeded/view/backend/main.view.php:34
-msgid "Require time history"
-msgstr "Uniquement avec prévisionnel"
-
 #: module/time-exceeded/view/backend/main.view.php:37
+msgid "Tasks with an exceeded forecast"
+msgstr ""
+
+#: module/time-exceeded/view/backend/main.view.php:43
+msgid "Tasks without forecast over time beyound"
+msgstr ""
+
+#: module/time-exceeded/view/backend/main.view.php:46
+msgid "minutes"
+msgstr ""
+
+#: module/time-exceeded/view/backend/main.view.php:49
 msgid "Display exceeded tasks"
 msgstr "Rechercher"
 
-#: module/time-exceeded/view/backend/main.view.php:41
+#: module/time-exceeded/view/backend/main.view.php:56
 msgid "Please use form above in order to view task where time is exceeded"
 msgstr ""
 "Merci d'utiliser le formulaire ci-dessus pour chercher et voir les tâches "
@@ -788,6 +801,27 @@ msgstr "Semaine"
 #: module/tools/view/backend/main.view.php:19
 msgid "Task Manager Tools"
 msgstr "Task Manager Outils"
+
+#: module/tools/view/backend/main.view.php:23
+msgid "Compile tasks, points, comments"
+msgstr ""
+
+#: module/tools/view/backend/main.view.php:25
+#: module/tools/view/backend/main.view.php:32
+msgid "Compile"
+msgstr ""
+
+#: module/tools/view/backend/main.view.php:30
+msgid "Compile users"
+msgstr ""
+
+#: module/tools/view/backend/main.view.php:37
+msgid "Fix points and comments"
+msgstr ""
+
+#: module/tools/view/backend/main.view.php:39
+msgid "Fix"
+msgstr ""
 
 #: module/update_manager/action/class-update-manager-action.php:53
 #, php-format
@@ -898,6 +932,15 @@ msgstr "Une erreur est survenu lors de la modification de la tâche %d"
 #, php-format
 msgid "%1$d tasks have been marked as archived on %2$d"
 msgstr "%1$d tâches ont été marquées comme archivées sur %2$d"
+
+#~ msgid "No element have been given for import data for"
+#~ msgstr "Aucun élément n'a été fourni pour l'import"
+
+#~ msgid "Display task with time over"
+#~ msgstr "Temps de référence (en minute)"
+
+#~ msgid "Require time history"
+#~ msgstr "Uniquement avec prévisionnel"
 
 #~ msgid "Import points from text file"
 #~ msgstr "Import de points depuis un fichier texte dans la tâche"

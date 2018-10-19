@@ -47,10 +47,12 @@ class Search_Bar_Shortcode {
 		$followers  = Follower_Class::g()->get( array(
 			'role' => 'administrator',
 		) );
+		$current_url = '//' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 		$empty_user = Follower_Class::g()->get( array( 'schema' => true ), true );
 		array_unshift( $followers, $empty_user );
 		$param = shortcode_atts( array(
+			'post_parent'            => 0,
 			'term'                   => '',
 			'status'                 => 'any',
 			'categories_id_selected' => array(),
@@ -59,9 +61,10 @@ class Search_Bar_Shortcode {
 
 		ob_start();
 		\eoxia\View_Util::exec( 'task-manager', 'navigation', 'backend/main', array(
-			'categories' => $categories,
-			'followers'  => $followers,
-			'param'      => $param,
+			'categories'  => $categories,
+			'followers'   => $followers,
+			'param'       => $param,
+			'current_url' => $current_url,
 		) );
 
 		return ob_get_clean();

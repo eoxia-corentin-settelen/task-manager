@@ -45,13 +45,15 @@ class Navigation_Action {
 		$status                 = ! empty( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : '';
 		$categories_id_selected = ! empty( $_POST['categories_id_selected'] ) ? sanitize_text_field( $_POST['categories_id_selected'] ) : '';
 		$follower_id_selected   = ! empty( $_POST['follower_id_selected' ] ) ? (int) $_POST['follower_id_selected'] : '';
+		$post_parent            = ! empty( $_POST['post_parent'] ) ? (int) $_POST['post_parent'] : 0;
+		$current_url            = ! empty( $_POST['current_url'] ) ? sanitize_text_field( $_POST['current_url'] ) : '';
 
 		ob_start();
-		Navigation_Class::g()->display_search_result( $term, $status, $categories_id_selected, $follower_id_selected );
+		Navigation_Class::g()->display_search_result( $term, $status, $categories_id_selected, $follower_id_selected, $current_url );
 		$search_result_view = ob_get_clean();
 
 		ob_start();
-		echo do_shortcode( '[task users_id="' . $follower_id_selected . '" status="' . $status . '" categories_id="' . $categories_id_selected . '" term="' . $term . '" posts_per_page="' . \eoxia\Config_Util::$init['task-manager']->task->posts_per_page . '" with_wrapper="0"]' );
+		echo do_shortcode( '[task post_parent="' . $post_parent . '" users_id="' . $follower_id_selected . '" status="' . $status . '" categories_id="' . $categories_id_selected . '" term="' . $term . '" posts_per_page="' . \eoxia\Config_Util::$init['task-manager']->task->posts_per_page . '" with_wrapper="0"]' );
 		$tasks_view = ob_get_clean();
 
 		wp_send_json_success( array(

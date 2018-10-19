@@ -128,3 +128,15 @@ window.eoxiaJS.taskManager.activity.loadedLastActivity = function( triggeredElem
 
 	window.eoxiaJS.refresh();
 };
+
+/**
+ * Le callback de la requête ajax "export_activity".
+ * 
+ * @param  {HTMLButtonElement} triggeredElement L'élement HTML déclenchant la requête Ajax.
+ * @param  {Object} response                    Les données renvoyées par la requête Ajax.
+ *
+ * @since 1.7.1
+ */
+window.eoxiaJS.taskManager.activity.exportedActivity = function( triggeredElement, response ) {
+	window.eoxiaJS.global.downloadFile( response.data.url_to_file, response.data.filename );
+};

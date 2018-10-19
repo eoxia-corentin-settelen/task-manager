@@ -30,7 +30,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 
 		<!-- Rest of admin page here -->
-
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder columns-<?php echo 1 === get_current_screen()->get_columns() ? '1' : '2'; ?>">
 				<div id="postbox-container-2" class="postbox-container">

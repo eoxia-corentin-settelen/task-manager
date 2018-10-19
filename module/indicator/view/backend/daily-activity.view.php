@@ -33,10 +33,12 @@ ob_start();
 	<label>
 		<i class="fa fa-calendar"></i><?php esc_html_e( 'End date', 'task-manager' ); ?>
 		<input type="date" value="<?php echo esc_attr( $date_end ); ?>" name="tm_abu_date_end" />
-		<input type="hidden" value="open_popup_user_activity" name="action" />
 		<input type="hidden" value="<?php echo esc_attr( wp_create_nonce( 'load_user_activity' ) ); ?>" name="_wpnonce" />
 	</label>
-	<button class="button-primary action-input" data-parent="filter-activity" id="tm-user-activity-load-by-date" ><?php esc_html_e( 'View activity', 'task-manager' ); ?></button>
+	
+	<?php echo apply_filters( 'tm_filter_activity', '', $user_id, $customer_id ); // WPCS: XSS ok. ?>
+	
+	<button class="button-primary action-input" data-parent="filter-activity" data-action="open_popup_user_activity" id="tm-user-activity-load-by-date" ><?php esc_html_e( 'View activity', 'task-manager' ); ?></button>
 </div>
 
 <!-- Liste des tâches effectuées -->
@@ -44,10 +46,15 @@ ob_start();
 	<div class="content">
 		<?php if ( ! empty( $datas ) ) : ?>
 			<?php foreach ( $datas as $activity ) : ?>
+				<?php $date = \eoxia\Date_Util::g()->fill_date( $activity->COM_DATE ); ?>
+				
+				<?php if ( empty( $last_date ) || ( ! empty( $last_date ) && $last_date['date'] != $date['date'] ) ) : ?>
+					<h2 style="font-size: 1.8em;"><?php echo esc_html( $date['date'] ); ?><h2>
+				<?php endif; ?>
 
 				<div class="activity">
 					<div class="information">
-						<?php echo do_shortcode( '[task_avatar ids="1" size="30"]' ); ?>
+						<?php echo do_shortcode( '[task_avatar ids="' . $activity->COM_author_id . '" size="30"]' ); ?>
 						<span class="time-posted"><?php echo esc_html( mysql2date( 'H\hi', $activity->COM_DATE, true ) ); ?></span>
 					</div>
 
@@ -57,12 +64,12 @@ ob_start();
 								<span class="event-client">
 									<i class="fa fa-user"></i>
 									<?php if ( ! empty( $activity->PT_ID ) ) : ?>
-									<a href="<?php echo esc_url( admin_url( 'post.php?action=edit&post=' . $activity->PT_ID ) ); ?>" target="wptm_view_activity_element" >
-										<?php echo esc_html( '#' . $activity->PT_ID . ' ' . $activity->PT_title ); ?>
-									</a>
-								<?php else : ?>
-									<?php echo esc_html( '-' ); ?>
-								<?php endif; ?>
+										<a href="<?php echo esc_url( admin_url( 'post.php?action=edit&post=' . $activity->PT_ID ) ); ?>" target="wptm_view_activity_element" >
+											<?php echo esc_html( '#' . $activity->PT_ID . ' ' . $activity->PT_title ); ?>
+										</a>
+									<?php else : ?>
+										<?php echo esc_html( '-' ); ?>
+									<?php endif; ?>
 								</span>
 							<!-- Tâche -->
 							<span class="event-task">
@@ -91,6 +98,8 @@ ob_start();
 						</span>
 					</div>
 				</div>
+				
+				<?php $last_date = $date; ?>
 
 			<?php endforeach; ?>
 		<?php else : ?>
@@ -123,6 +132,7 @@ echo wp_kses( str_replace( '{{ total_time }}', \eoxia\Date_Util::g()->convert_to
 	'button' => array(
 		'class'       => array(),
 		'data-parent' => array(),
+		'data-action' => array(),
 	),
 	'a'      => array(
 		'href'   => array(),
@@ -148,5 +158,18 @@ echo wp_kses( str_replace( '{{ total_time }}', \eoxia\Date_Util::g()->convert_to
 	'img'    => array(
 		'class' => array(),
 		'src'   => array(),
+	),
+	'select' => array(
+		'name' => array(),
+		'id'   => array(),
+		'data-placeholder' => array(),
+		'class' => array(),
+	),
+	'option' => array(
+		'value' => array(),
+		'selected' => array(),
+	),
+	'h2' => array(
+		'style' => array(),
 	),
 ) );

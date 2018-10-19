@@ -17,6 +17,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="form" action="<?php echo esc_attr( admin_url( 'admin-ajax.php' ) ); ?>" method="POST">
 	<header class="wpeo-header-bar">
 		<input type="hidden" name="status" value="any" />
+		<input type="hidden" name="post_parent" value="<?php echo esc_attr( $param['post_parent'] ); ?>" />
+		<input type="hidden" name="current_url" value="<?php echo esc_attr( $current_url ); ?>" />
 
 		<ul>
 
@@ -78,4 +80,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 <?php
-Navigation_Class::g()->display_search_result( $param['term'], $param['status'], $param['categories_id_selected'], $param['follower_id_selected'] );
+Navigation_Class::g()->display_search_result( $param['term'], $param['status'], $param['categories_id_selected'], $param['follower_id_selected'], $current_url );
