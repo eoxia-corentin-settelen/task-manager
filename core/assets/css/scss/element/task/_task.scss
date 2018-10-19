@@ -30,6 +30,13 @@
 	}
 }
 
+/** Task en plein écran dans les metabox clients */
+.class-metabox-container {
+	.wpeo-project-task {
+		width: 100%;
+	}
+}
+
 @media ( max-width: 1000px ) {
 	.wpeo-project-wrap {
 		.list-task {

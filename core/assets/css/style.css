@@ -77,6 +77,7 @@ readers do not read off random characters that represent icons */
 	# Elements
 	--------------------------------------------------------------*/
   /** Import des modules */
+  /** Task en plein écran dans les metabox clients */
   /** Bouton pour ouvrir la modal */
   /**
  * Modal d'ajout rapide
@@ -3928,6 +3929,9 @@ readers do not read off random characters that represent icons */
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   pointer-events: all; }
+
+.wpeo-project-wrap .class-metabox-container .wpeo-project-task {
+  width: 100%; }
 
 @media (max-width: 1000px) {
   .wpeo-project-wrap .wpeo-project-wrap .list-task .wpeo-project-task {
