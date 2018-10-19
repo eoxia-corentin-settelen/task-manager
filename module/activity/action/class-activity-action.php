@@ -189,8 +189,8 @@ class Activity_Action {
 					'date'     => $date['date_time'],
 					'user'     => $user_data->user_nicename,
 					'customer' => $data->PT_title,
-					'task'     => str_replace( $search, $replace, $data->T_title ),
-					'point'    => str_replace( $search, $replace, $data->POINT_title ),
+					'task'     => '#' . $data->T_ID . ' - ' . str_replace( $search, $replace, $data->T_title ),
+					'point'    => '#' . $data->POINT_ID . ' - ' . str_replace( $search, $replace, $data->POINT_title ),
 					'comment'  => str_replace( $search, $replace, $data->COM_title ),
 					'time'     => ! empty( $com_details->time_info->elapsed ) ? $com_details->time_info->elapsed : 0,
 				);
