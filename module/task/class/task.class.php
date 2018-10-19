@@ -267,6 +267,11 @@ class Task_Class extends \eoxia\Post_Class {
 	 * @version 1.6.0
 	 */
 	public function callback_render_metabox( $post ) {
+		$term = ! empty( $_GET['term'] ) ? sanitize_text_field( $_GET['term'] ) : ''; // WPCS: CSRF ok.
+		$id = (int) $term;
+		$categories_id_selected = ! empty( $_GET['categories_id_selected'] ) ? sanitize_text_field( $_GET['categories_id_selected'] ) : ''; // WPCS: CSRF ok.
+		$follower_id_selected = ! empty( $_GET['follower_id_selected'] ) ? sanitize_text_field( $_GET['follower_id_selected'] ) : ''; // WPCS: CSRF ok.
+		
 		$parent_id = $post->ID;
 		$user_id   = $post->post_author;
 
@@ -335,11 +340,14 @@ class Task_Class extends \eoxia\Post_Class {
 		$total_time_estimated = \eoxia\Date_Util::g()->convert_to_custom_hours( $total_time_estimated );
 
 		\eoxia\View_Util::exec( 'task-manager', 'task', 'backend/metabox-posts', array(
-			'post'                 => $post,
-			'tasks'                => $tasks,
-			'task_ids_for_history' => implode( ',', $task_ids_for_history ),
-			'total_time_elapsed'   => $total_time_elapsed,
-			'total_time_estimated' => $total_time_estimated,
+			'post'                   => $post,
+			'tasks'                  => $tasks,
+			'task_ids_for_history'   => implode( ',', $task_ids_for_history ),
+			'total_time_elapsed'     => $total_time_elapsed,
+			'total_time_estimated'   => $total_time_estimated,
+			'term'                   => $term,
+			'categories_id_selected' => $categories_id_selected,
+			'follower_id_selected'   => $follower_id_selected,
 		) );
 	}
 
